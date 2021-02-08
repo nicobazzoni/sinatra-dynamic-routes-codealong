@@ -1,4 +1,5 @@
 require_relative 'config/environment'
+require 'pry'
 
 class App < Sinatra::Base
 
@@ -13,6 +14,16 @@ class App < Sinatra::Base
     "Hello #{@user_name}!"
   end
 
-  # Code your final two routes here:
-
+ 
+    # Code your final two routes here:
+    get '/goodbye/:name' do
+      @name = params[:name]
+      "Goodbye, #{@name}."
+    end
+  
+    get "/multiply/:num1/:num2" do
+      
+       @medicine = params[:num1].to_i * params[:num2].to_i
+       "#{@medicine}"
+    end
 end
